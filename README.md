@@ -15,7 +15,7 @@
 
 1.把ZHNformView文件拖入到项目中
 
-2.创建view设置属性实现代理方法
+2.创建view设置属性实现代理方法类似如下（具体看如何使用viewcontroller里代码）
 
 ```
 #pragma mark - zhnformView delegate
