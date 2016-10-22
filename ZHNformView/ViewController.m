@@ -30,7 +30,7 @@
 //    forView.showVerticalLayer = NO;
     forView.contentFont = 11;
     forView.titleFont = 20;
-    forView.frame = CGRectMake(10, 100, 400, 300);
+    forView.frame = CGRectMake(10, 100, 300, 300);
     [self.view addSubview:forView];
     self.formView = forView;
 }
@@ -47,7 +47,7 @@
 }
 
 - (NSInteger)numbOfSectionsInZHNformView:(ZHNformView *)forView{
-    return 3;
+    return 5;
 }
 
 - (NSString *)ZHNformView:(ZHNformView *)formView ContentOfCol:(NSInteger)col inRow:(NSInteger)row{

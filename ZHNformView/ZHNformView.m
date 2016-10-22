@@ -190,7 +190,7 @@
     
     UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, [UIScreen mainScreen].scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 1/[UIScreen mainScreen].scale);
+    CGContextSetLineWidth(context, (1/[UIScreen mainScreen].scale));
     [self.headTitleBackColor setFill];
     
     // 画标题的背景
@@ -210,7 +210,7 @@
     
     // 画横线
     for (int lineSec = 0; lineSec < sectionCount; lineSec ++) {
-        CGContextSetLineWidth(context, (1/[UIScreen mainScreen].scale)/2);
+        CGContextSetLineWidth(context, (1/[UIScreen mainScreen].scale)/3);
         CGFloat height = lineSec * itemHeight + headHeight;
         CGContextMoveToPoint(context, 0, height);
         CGContextAddLineToPoint(context, KZHN_VIEWWIDTH, height);

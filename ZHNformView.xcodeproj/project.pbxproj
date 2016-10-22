@@ -212,6 +212,7 @@
 				TargetAttributes = {
 					CDA1DEA11DBA3B000067C7F5 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 5V5B3UC44Z;
 						ProvisioningStyle = Automatic;
 					};
 					CDA1DEBA1DBA3B000067C7F5 = {
@@ -428,6 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5V5B3UC44Z;
 				INFOPLIST_FILE = ZHNformView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhn.ZHNformView;
@@ -439,6 +441,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5V5B3UC44Z;
 				INFOPLIST_FILE = ZHNformView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhn.ZHNformView;
@@ -511,6 +514,7 @@
 				CDA1DED11DBA3B000067C7F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDA1DED21DBA3B000067C7F5 /* Build configuration list for PBXNativeTarget "ZHNformViewTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +523,7 @@
 				CDA1DED41DBA3B000067C7F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDA1DED51DBA3B000067C7F5 /* Build configuration list for PBXNativeTarget "ZHNformViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +532,7 @@
 				CDA1DED71DBA3B000067C7F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
