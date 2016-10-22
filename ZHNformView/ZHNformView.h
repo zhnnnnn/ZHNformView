@@ -19,6 +19,11 @@
 - (UIColor *)ZHNformView:(ZHNformView *)formView headStringColorOfCol:(NSInteger)Col;
 @end
 
+@protocol ZHNformViewDelegate <NSObject>
+@optional
+- (void)ZHNformView:(ZHNformView *)formView selectedRow:(NSInteger)row col:(NSInteger)col;
+@end
+
 
 
 @interface ZHNformView : UIView
@@ -36,6 +41,8 @@
 @property (nonatomic,getter = isShowHorizontalLayer) BOOL showHorizontalLayer;
 
 @property (nonatomic,weak) id <ZHNformViewDataSource> dataSource;
+
+@property (nonatomic,weak) id <ZHNformViewDelegate> delegate;
 
 - (void)ZHN_reloadData;
 

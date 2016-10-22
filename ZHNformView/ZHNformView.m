@@ -83,14 +83,22 @@
     
     // 垂直
     CGFloat sum = 0;
+    NSInteger col = 0;
     CGRect VshowLayerRect = CGRectMake(0, 0, 0, 0);
     for (int index = 0; index < self.kitemWidthArray.count; index++) {
         CGFloat width = [self.kitemWidthArray[index]floatValue];
         if (tapPoint.x >= sum && tapPoint.x <= sum+width) {
             VshowLayerRect = CGRectMake(sum, self.KheadHeight, width, KZHN_VIEWHEIGHT - self.KheadHeight);
+            col = index;
         }
         sum += width;
     }
+    
+    // 通知代理
+    if ([self.delegate respondsToSelector:@selector(ZHNformView:selectedRow:col:)]) {
+        [self.delegate ZHNformView:self selectedRow:row col:col];
+    }
+    
     // CATransaction是为了关闭隐式动画
     [CATransaction begin];
     [CATransaction setDisableActions:YES];

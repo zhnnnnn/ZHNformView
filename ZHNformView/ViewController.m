@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "ZHNformView.h"
 
-@interface ViewController ()<ZHNformViewDataSource>
+@interface ViewController ()<ZHNformViewDataSource,ZHNformViewDelegate>
 
 @property (nonatomic,copy) NSArray * array;
 
@@ -25,6 +25,7 @@
     
     ZHNformView * forView = [[ZHNformView alloc]init];
     forView.dataSource = self;
+    forView.delegate = self;
 //    forView.headTitleBackColor = [UIColor brownColor];
 //    forView.showVerticalLayer = NO;
     forView.contentFont = 11;
@@ -75,6 +76,12 @@
 
 - (CGFloat)headTitleHeightForZHNformView:(ZHNformView *)formView{
     return 100;
+}
+
+#pragma mark zhnformView delegate
+- (void)ZHNformView:(ZHNformView *)formView selectedRow:(NSInteger)row col:(NSInteger)col{
+    
+    NSLog(@"row - %ld col - %ld",row,col);
 }
 
 @end
