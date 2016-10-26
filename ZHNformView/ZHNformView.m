@@ -130,7 +130,7 @@
     CGFloat headHeight = -1;
     
     // 处理有问题的输入
-    if ([self.dataSource respondsToSelector:@selector(itemHeightPercentArrayForZHNformView:)]) {
+    if (self.isCustomHeadTitleWidth && [self.dataSource respondsToSelector:@selector(itemHeightPercentArrayForZHNformView:)]) {
         itemWidthPercentArray = [self.dataSource itemHeightPercentArrayForZHNformView:self];
         NSAssert(itemWidthPercentArray.count == headTitleArray.count, @"itemHeightPercentArrayForZHNformView方法和headTitleArrayForZHNformView返回数组的个数请相等");
         CGFloat sum = 0;
@@ -163,7 +163,7 @@
     CGFloat titleStringSumWidth = 0;
     
     // 计算宽度
-    if (itemWidthPercentArray.count > 0) {
+    if (itemWidthPercentArray.count > 0 && self.isCustomHeadTitleWidth) {
         for (int index = 0; index < itemWidthPercentArray.count; index++) {
             CGFloat percent = [itemWidthPercentArray[index]floatValue];
             [newWidthArray addObject:@(percent * KZHN_VIEWWIDTH)];

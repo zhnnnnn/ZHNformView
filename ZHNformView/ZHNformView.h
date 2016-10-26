@@ -6,14 +6,27 @@
 //  Copyright © 2016年 zhn. All rights reserved.
 //
 
+/*
+                友情提醒
+ 一般返回数据接口会类似下面这样写
+ - (NSString *)ZHNformView:(ZHNformView *)formView ContentOfCol:(NSInteger)col inRow:(NSInteger)row{
+    return self.statusArray[row][col];
+ }
+ 
+ 由于 self.statusArray[row][col] 这样的写法会存在数组越界的情况会导致程序奔溃的情况,而我这个库的接口设计判断不到数组会不会越界。所以建议你在赋值的时候对 self.statusArray对这个数据做一层判断，确保数据一一对应，保持程序的健壮~。
+ 
+ 
+ */
+
+
 #import <UIKit/UIKit.h>
 @class ZHNformView;
 @protocol ZHNformViewDataSource <NSObject>
 - (NSArray <NSString *> *)headTitleArrayForZHNformView:(ZHNformView *)formView;
 - (NSInteger)numbOfSectionsInZHNformView:(ZHNformView *)forView;
 - (NSString *)ZHNformView:(ZHNformView *)formView ContentOfCol:(NSInteger)col inRow:(NSInteger)row;
-@optional
 
+@optional
 /**
  返回列宽度百分比的数组（不实现这个方法默认是按照 headTitleArrayForZHNformView 方法返回的数组里面的文字长度的百分比来显示）
 
@@ -43,6 +56,11 @@
 // 是否显示水平和垂直的辅助显示的view（不填默认是显示的）
 @property (nonatomic,getter = isShowVerticalLayer) BOOL showVerticalLayer;
 @property (nonatomic,getter = isShowHorizontalLayer) BOOL showHorizontalLayer;
+
+// 需要自定义 headTitlewidth 的情况下必须设置下面这个参数为YES
+// 和 itemHeightPercentArrayForZHNformView 方法陪套使用
+// 为什么设计这个参数是为了方便切换自定义宽度和默认计算宽度这两种模式(比如你的form是在tableviewcell 里面的情况)
+@property (nonatomic,getter = isCustomHeadTitleWidth) BOOL customHeadTitleWidth;
 
 @property (nonatomic,weak) id <ZHNformViewDataSource> dataSource;
 @property (nonatomic,weak) id <ZHNformViewDelegate> delegate;
