@@ -15,7 +15,7 @@
 		CDA1DEB51DBA3B000067C7F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA1DEB31DBA3B000067C7F5 /* LaunchScreen.storyboard */; };
 		CDA1DEC01DBA3B000067C7F5 /* ZHNformViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA1DEBF1DBA3B000067C7F5 /* ZHNformViewTests.m */; };
 		CDA1DECB1DBA3B000067C7F5 /* ZHNformViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA1DECA1DBA3B000067C7F5 /* ZHNformViewUITests.m */; };
-		CDA1DEDA1DBA3B1C0067C7F5 /* ZHNformView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA1DED91DBA3B1C0067C7F5 /* ZHNformView.m */; };
+		CDCAF9D01DC7078A00F8EDA4 /* ZHNformView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCAF9CF1DC7078A00F8EDA4 /* ZHNformView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,8 @@
 		CDA1DEC61DBA3B000067C7F5 /* ZHNformViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZHNformViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA1DECA1DBA3B000067C7F5 /* ZHNformViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHNformViewUITests.m; sourceTree = "<group>"; };
 		CDA1DECC1DBA3B000067C7F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CDA1DED81DBA3B1C0067C7F5 /* ZHNformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNformView.h; sourceTree = "<group>"; };
-		CDA1DED91DBA3B1C0067C7F5 /* ZHNformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNformView.m; sourceTree = "<group>"; };
+		CDCAF9CE1DC7078900F8EDA4 /* ZHNformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNformView.h; sourceTree = "<group>"; };
+		CDCAF9CF1DC7078A00F8EDA4 /* ZHNformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNformView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,10 +106,10 @@
 			children = (
 				CDA1DEA81DBA3B000067C7F5 /* AppDelegate.h */,
 				CDA1DEA91DBA3B000067C7F5 /* AppDelegate.m */,
-				CDA1DED81DBA3B1C0067C7F5 /* ZHNformView.h */,
-				CDA1DED91DBA3B1C0067C7F5 /* ZHNformView.m */,
 				CDA1DEAB1DBA3B000067C7F5 /* ViewController.h */,
 				CDA1DEAC1DBA3B000067C7F5 /* ViewController.m */,
+				CDCAF9CE1DC7078900F8EDA4 /* ZHNformView.h */,
+				CDCAF9CF1DC7078A00F8EDA4 /* ZHNformView.m */,
 				CDA1DEAE1DBA3B000067C7F5 /* Main.storyboard */,
 				CDA1DEB11DBA3B000067C7F5 /* Assets.xcassets */,
 				CDA1DEB31DBA3B000067C7F5 /* LaunchScreen.storyboard */,
@@ -282,7 +282,7 @@
 				CDA1DEAD1DBA3B000067C7F5 /* ViewController.m in Sources */,
 				CDA1DEAA1DBA3B000067C7F5 /* AppDelegate.m in Sources */,
 				CDA1DEA71DBA3B000067C7F5 /* main.m in Sources */,
-				CDA1DEDA1DBA3B1C0067C7F5 /* ZHNformView.m in Sources */,
+				CDCAF9D01DC7078A00F8EDA4 /* ZHNformView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

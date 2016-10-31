@@ -6,27 +6,14 @@
 //  Copyright © 2016年 zhn. All rights reserved.
 //
 
-/*
-                友情提醒
- 一般返回数据接口会类似下面这样写
- - (NSString *)ZHNformView:(ZHNformView *)formView ContentOfCol:(NSInteger)col inRow:(NSInteger)row{
-    return self.statusArray[row][col];
- }
- 
- 由于 self.statusArray[row][col] 这样的写法会存在数组越界的情况会导致程序奔溃的情况,而我这个库的接口设计判断不到数组会不会越界。所以建议你在赋值的时候对 self.statusArray对这个数据做一层判断，确保数据一一对应，保持程序的健壮~。
- 
- 
- */
-
-
 #import <UIKit/UIKit.h>
 @class ZHNformView;
 @protocol ZHNformViewDataSource <NSObject>
 - (NSArray <NSString *> *)headTitleArrayForZHNformView:(ZHNformView *)formView;
 - (NSInteger)numbOfSectionsInZHNformView:(ZHNformView *)forView;
 - (NSString *)ZHNformView:(ZHNformView *)formView ContentOfCol:(NSInteger)col inRow:(NSInteger)row;
-
 @optional
+
 /**
  返回列宽度百分比的数组（不实现这个方法默认是按照 headTitleArrayForZHNformView 方法返回的数组里面的文字长度的百分比来显示）
 
