@@ -33,12 +33,14 @@
     if (self = [super init]) {
         self.showHorizontalLayer = YES;
         self.showVerticalLayer = YES;
+        self.clipsToBounds = YES;
+        [self addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
     }
     return self;
 }
 
 - (void)layoutSubviews{
-
+    
     [super layoutSubviews];
     if (!self.headTitleBackColor) {
         self.headTitleBackColor = [UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1.0];
@@ -54,7 +56,7 @@
         [self.layer addSublayer:self.verticalShowLayer];
     }
     if (self.showHorizontalLayer) {
-       [self.layer addSublayer:self.HorizontalShowLayer];
+        [self.layer addSublayer:self.HorizontalShowLayer];
     }
     [self.layer addSublayer:self.contentLayer];
     
@@ -62,8 +64,14 @@
     [self addGestureRecognizer:tap];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-         [self p_layoutContent];
+        [self p_layoutContent];
     });
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"bounds"]) {
+        self.contentLayer.frame = self.bounds;
+    }
 }
 
 #pragma mark - target action
@@ -110,7 +118,13 @@
 
 #pragma mark - public method
 - (void)ZHN_reloadData{
-    [self p_layoutContent];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        self.layer.contents = nil;
+        for (UIView * temp in self.subviews) {
+            [temp removeFromSuperview];
+        }
+        [self p_layoutContent];
+    });
 }
 
 - (void)ZHN_removeAssistLayer{
@@ -139,7 +153,7 @@
             NSAssert(currentPercent != 0, @"itemHeightPercentArrayForZHNformView方法返回的数组请别包含负数或者字符");
             sum += currentPercent;
         }
-         NSAssert(sum >= 1.00000001 && sum <= 1.0000001, @"itemHeightPercentArrayForZHNformView 方法输入的百分比的总和请等于1");
+        NSAssert(sum >= 1.00000001 && sum <= 1.0000001, @"itemHeightPercentArrayForZHNformView 方法输入的百分比的总和请等于1");
     }
     if ([self.dataSource respondsToSelector:@selector(headTitleHeightForZHNformView:)]) {
         CGFloat height = [self.dataSource headTitleHeightForZHNformView:self];
@@ -182,7 +196,7 @@
         }
     }
     self.kitemWidthArray = [newWidthArray copy];
-
+    
     //文字居中显示在画布上
     NSMutableParagraphStyle* paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;// 这个属性是能够画字符的时候换行
