@@ -12,6 +12,7 @@
 @interface ViewController ()<ZHNformViewDataSource,ZHNformViewDelegate>
 
 @property (nonatomic,copy) NSArray * array;
+@property (nonatomic,copy) NSArray * statusArray;
 
 @property (nonatomic,weak) ZHNformView * formView;
 @end
@@ -21,8 +22,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.array = @[@"有问题",@"直接联系我咯",@"建议",@"或者意见"];
-    
+    self.array = @[@"姓名",@"得分",@"篮板",@"助攻",@"抢断"];
+    self.statusArray = @[
+                         @[@"库里",@"46",@"5",@"5",@"2"],
+                         @[@"汤普森",@"24",@"4",@"1",@"3"],
+                         @[@"杜兰特",@"22",@"3",@"5",@"1"],
+                         @[@"格林",@"4",@"12",@"11",@"1"],
+                         @[@"帕楚里亚",@"2",@"1",@"1",@"0"],
+                         @[@"大卫韦斯特",@"8",@"4",@"2",@"0"],
+                         @[@"利文斯顿",@"4",@"3",@"1",@"1"],
+                         @[@"伊戈达拉",@"2",@"4",@"8",@"2"],
+                         ];
     ZHNformView * forView = [[ZHNformView alloc]init];
     forView.dataSource = self;
     forView.delegate = self;
@@ -36,7 +46,16 @@
 }
 
 - (IBAction)reloadAction:(id)sender {
-    self.array = @[@"看着",@"好像很厉害",@"的样子",@"🙄"];
+    self.statusArray = @[
+                         @[@"戴维斯",@"33",@"13",@"1",@"0"],
+                         @[@"摩尔",@"15",@"3",@"5",@"0"],
+                         @[@"弗雷泽",@"13",@"4",@"10",@"1"],
+                         @[@"阿西克",@"6",@"8",@"0",@"0"],
+                         @[@"所罗门希尔",@"2",@"5",@"4",@"1"],
+                         @[@"加洛维",@"9",@"2",@"4",@"1"],
+                         @[@"巴迪",@"9",@"6",@"1",@"1"],
+                         @[@"康宁汉姆",@"8",@"1",@"1",@"0"],
+                         ];
     [self.formView ZHN_removeAssistLayer];
     [self.formView ZHN_reloadData];
 }
@@ -47,15 +66,15 @@
 }
 
 - (NSInteger)numbOfSectionsInZHNformView:(ZHNformView *)forView{
-    return 5;
+    return self.statusArray.count;
 }
 
 - (NSString *)ZHNformView:(ZHNformView *)formView ContentOfCol:(NSInteger)col inRow:(NSInteger)row{
-    return @"zhnnnnn出品";
+    return self.statusArray[row][col];
 }
 
 - (NSArray *)itemHeightPercentArrayForZHNformView:(ZHNformView *)formView{
-    return @[@"0.1",@"0.5",@"0.3",@"0.1"];
+    return @[@"0.4",@"0.15",@"0.15",@"0.15",@"0.15"];
 }
 
 - (UIColor *)ZHNformView:(ZHNformView *)formView stringColorOfCol:(NSInteger)col inRow:(NSInteger)row{
@@ -75,7 +94,7 @@
 }
 
 - (CGFloat)headTitleHeightForZHNformView:(ZHNformView *)formView{
-    return 100;
+    return 40;
 }
 
 #pragma mark zhnformView delegate
