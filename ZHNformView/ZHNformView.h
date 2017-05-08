@@ -20,7 +20,7 @@
  * 数组的里面的数字的和必须等于 1
  * 数组里面的个数必须和 headTitleArrayForZHNformView 方法返回的数组的个数相等
  */
-- (NSArray *)itemHeightPercentArrayForZHNformView:(ZHNformView *)formView;
+- (NSArray *)itemWidthPercentArrayForZHNformView:(ZHNformView *)formView;
 - (CGFloat)headTitleHeightForZHNformView:(ZHNformView *)formView;
 - (UIColor *)ZHNformView:(ZHNformView *)formView stringColorOfCol:(NSInteger)col inRow:(NSInteger)row;
 - (UIColor *)ZHNformView:(ZHNformView *)formView headStringColorOfCol:(NSInteger)Col;
