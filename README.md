@@ -3,15 +3,15 @@
 
 ![image](https://raw.githubusercontent.com/zhnnnnn/ZHNformView/master/demo.gif)
 
-######主要特性
+###### 主要特性
 
-*异步绘制，性能保障。
+* 异步绘制，性能保障。
 
-*自定义各类颜色字体大小之类属性。
+* 自定义各类颜色字体大小之类属性。
 
-*接口设计类似`UitableView`一看就懂。
+* 接口设计类似`UitableView`一看就懂。
 
-######使用方法
+###### 使用方法
 
 1.把ZHNformView文件拖入到项目中
 
